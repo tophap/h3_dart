@@ -1,5 +1,7 @@
+group 'com.tophap.h3_ffi'
+version '0.0.1'
+
 buildscript {
-    ext.kotlin_version = '1.3.41'
     repositories {
         google()
         jcenter()
@@ -7,25 +9,38 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
-allprojects {
+rootProject.allprojects {
     repositories {
         google()
         jcenter()
     }
 }
 
-rootProject.buildDir = '../build'
-subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
-    project.evaluationDependsOn(':app')
-}
+apply plugin: 'com.android.library'
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 16
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "../cpp/CMakeLists.txt"
+        }
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+    }
 }

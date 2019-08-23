@@ -1,0 +1,3 @@
+/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/debug/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/debug/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/debug/armeabi-v7a/CMakeFiles/h3.dir

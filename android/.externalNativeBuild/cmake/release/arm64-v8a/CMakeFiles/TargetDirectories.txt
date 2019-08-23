@@ -1,0 +1,2 @@
+/Users/long1eu/IdeaProjects/h3_ffi/android/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/long1eu/IdeaProjects/h3_ffi/android/.externalNativeBuild/cmake/release/arm64-v8a/CMakeFiles/edit_cache.dir

@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "/Users/long1eu/IdeaProjects/h3_ffi/cpp/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/Users/long1eu/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/x86_64 --target clean"
+  ],
+  "libraries": {
+    "h3-Release-x86_64": {
+      "artifactName": "h3",
+      "buildCommand": "/Users/long1eu/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/x86_64 --target h3",
+      "abi": "x86_64",
+      "output": "/Users/long1eu/IdeaProjects/h3_ffi/example/h3_ffi_flutter_example/build/h3_ffi/intermediates/cmake/release/obj/x86_64/libh3.so"
+    }
+  }
+}

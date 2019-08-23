@@ -1,0 +1,122 @@
+
+{
+	"buildFiles" : [ "/Users/long1eu/IdeaProjects/h3_ffi/cpp/CMakeLists.txt" ],
+	"cFileExtensions" : [ "c" ],
+	"cleanCommands" : 
+	[
+		"/Users/long1eu/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a --target clean"
+	],
+	"libraries" : 
+	{
+		"h3-Release-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "h3",
+			"buildCommand" : "/Users/long1eu/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a --target h3",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/algos.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/coordijk.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/bbox.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/polygon.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/h3Index.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/vec2d.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/vec3d.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/linkedGeo.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/localij.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/geoCoord.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/h3UniEdge.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/mathExtensions.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/vertexGraph.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/faceijk.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				},
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dh3_EXPORTS -I/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/include -I.  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC   -Wall    -c ",
+					"src" : "/Users/long1eu/IdeaProjects/h3_ffi/cpp/h3/src/h3lib/lib/baseCells.c",
+					"workingDirectory" : "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/release/arm64-v8a"
+				}
+			],
+			"output" : "/Users/long1eu/IdeaProjects/h3_ffi/example/h3_ffi_flutter_example/build/h3_ffi/intermediates/cmake/release/obj/arm64-v8a/libh3.so",
+			"toolchain" : "15114792289184883094"
+		}
+	},
+	"toolchains" : 
+	{
+		"15114792289184883094" : 
+		{
+			"cCompilerExecutable" : "/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+		}
+	}
+}

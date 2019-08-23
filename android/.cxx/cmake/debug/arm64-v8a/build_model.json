@@ -1,0 +1,72 @@
+{
+  "variant": {
+    "module": {
+      "rootBuildGradleFolder": "/Users/long1eu/IdeaProjects/h3_ffi/example/h3_ffi_flutter_example/android",
+      "sdkFolder": "/Users/long1eu/Library/Android/sdk",
+      "isNativeCompilerSettingsCacheEnabled": false,
+      "isBuildOnlyTargetAbiEnabled": true,
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "/Users/long1eu/IdeaProjects/h3_ffi/example/h3_ffi_flutter_example/build/h3_ffi/intermediates",
+      "gradleModulePathName": ":h3_ffi",
+      "moduleRootFolder": "/Users/long1eu/IdeaProjects/h3_ffi/android",
+      "makeFile": "/Users/long1eu/IdeaProjects/h3_ffi/cpp/CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "compilerSettingsCacheFolder": "/Users/long1eu/IdeaProjects/h3_ffi/example/h3_ffi_flutter_example/android/.cxx",
+      "cxxFolder": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx",
+      "ndkFolder": "/Users/long1eu/Library/Android/sdk/ndk/20.0.5594570",
+      "ndkVersion": "20.0.5594570",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "cmakeToolchainFile": "."
+    },
+    "buildSystemArgumentList": [],
+    "cFlagList": [],
+    "cppFlagsList": [
+      ""
+    ],
+    "variantName": "debug",
+    "soFolder": "/Users/long1eu/IdeaProjects/h3_ffi/example/h3_ffi_flutter_example/build/h3_ffi/intermediates/cmake/debug/lib",
+    "objFolder": "/Users/long1eu/IdeaProjects/h3_ffi/example/h3_ffi_flutter_example/build/h3_ffi/intermediates/cmake/debug/obj",
+    "jsonFolder": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/debug",
+    "gradleBuildOutputFolder": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cxx/debug",
+    "isDebuggableEnabled": true,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": []
+  },
+  "abi": "ARM64_V8A",
+  "abiPlatformVersion": 16,
+  "cxxBuildFolder": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/debug/arm64-v8a",
+  "jsonFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/debug/arm64-v8a/android_gradle_build.json",
+  "gradleBuildOutputFolder": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cxx/debug/arm64-v8a",
+  "objFolder": "/Users/long1eu/IdeaProjects/h3_ffi/example/h3_ffi_flutter_example/build/h3_ffi/intermediates/cmake/debug/obj/arm64-v8a",
+  "buildCommandFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/debug/arm64-v8a/build_command.txt",
+  "buildOutputFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/debug/arm64-v8a/build_output.txt",
+  "modelOutputFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/debug/arm64-v8a/build_model.json",
+  "cmake": {
+    "cmakeListsWrapperFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cxx/debug/arm64-v8a/CMakeLists.txt",
+    "toolchainWrapperFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cxx/debug/arm64-v8a/android_gradle_build.toolchain.cmake",
+    "buildGenerationStateFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cxx/debug/arm64-v8a/build_generation_state.json",
+    "cacheKeyFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cxx/debug/arm64-v8a/compiler_cache_key.json",
+    "compilerCacheUseFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cxx/debug/arm64-v8a/compiler_cache_use.json",
+    "compilerCacheWriteFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cxx/debug/arm64-v8a/compiler_cache_write.json",
+    "toolchainSettingsFromCacheFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cxx/debug/arm64-v8a/compiler_settings_cache.cmake",
+    "cmakeWrappingBaseFolder": "."
+  },
+  "jsonGenerationLoggingRecordFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/debug/arm64-v8a/json_generation_record.json",
+  "compileCommandsJsonFile": "/Users/long1eu/IdeaProjects/h3_ffi/android/.cxx/cmake/debug/arm64-v8a/compile_commands.json"
+}

@@ -11,7 +11,8 @@ import 'signatures.dart';
 
 class _H3Bindings {
   _H3Bindings() {
-    h3 = dlopenPlatformSpecific('h3');
+    h3 = dlopenPlatformSpecific('h3', path: 'cpp/build/');
+
     geoToH3 = h3.lookup<NativeFunction<geoToH3_native_t>>('geoToH3').asFunction();
     h3ToGeo = h3.lookup<NativeFunction<h3ToGeo_native_t>>('h3ToGeo').asFunction();
     h3ToGeoBoundary = h3.lookup<NativeFunction<h3ToGeoBoundary_native_t>>('h3ToGeoBoundary').asFunction();

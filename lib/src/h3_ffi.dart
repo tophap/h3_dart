@@ -27,16 +27,11 @@ GeoBoundary h3ToGeoBoundary(int h3) {
   final List<GeoCoord> coordinates = <GeoCoord>[];
   final GeoBoundaryNative boundary = gp.load();
 
-  print(boundary.verts.asExternalTypedData(count: boundary.numVerts));
-  //print(boundary.verts.elementAt(0).load<GeoCoordNative>());
-
-  /*
   for (int i = 0; i < boundary.numVerts; i++) {
     final GeoCoordNative coord = boundary.verts.elementAt(i).load<GeoCoordNative>();
     coordinates.add(GeoCoord(lat: coord.lat, lon: coord.lon));
   }
   gp.free();
-  */
 
   return GeoBoundary(coordinates);
 }

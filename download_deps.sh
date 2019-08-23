@@ -2,4 +2,8 @@
 
 cd cpp || exit
 git clone https://github.com/uber/h3
-cd ..
+
+mkdir build || echo "Build folder exists"
+cd build
+cmake ..
+make h3

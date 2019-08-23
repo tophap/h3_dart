@@ -22,7 +22,7 @@ class GeoCoord {
 
   @override
   String toString() {
-    return 'GeoCoord{lat: $lat($latDeg), lon: $lon($lonDeg)}';
+    return 'GeoCoord{lat: $latDeg, lon: $lonDeg}';
   }
 
   @override

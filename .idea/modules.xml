@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/h3_ffi.iml" filepath="$PROJECT_DIR$/h3_ffi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/example/h3_ffi_flutter_example/h3_ffi_flutter_example.iml" filepath="$PROJECT_DIR$/example/h3_ffi_flutter_example/h3_ffi_flutter_example.iml" />
-    </modules>
-  </component>
-</project>

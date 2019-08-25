@@ -80,6 +80,11 @@ build/
 doc/api/
 cpp/**/*
 !cpp/CMakeLists.txt
+!cpp/dart.c
 
 android/.cxx
 android/.externalNativeBuild
+
+ios/**/*
+!ios/h3.podspec
+!ios/CMakeLists.txt

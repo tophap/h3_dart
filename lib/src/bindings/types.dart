@@ -4,8 +4,6 @@
 
 import 'dart:ffi';
 
-import 'package:h3_ffi/h3_ffi.dart';
-
 class GeoCoordNative extends Struct<GeoCoordNative> {
   /// latitude in radians
   @Double()
@@ -22,6 +20,8 @@ class GeoCoordNative extends Struct<GeoCoordNative> {
       ..load<GeoCoordNative>().lon = lon;
   }
 
+  static int get size => 2 * 8; // two doubles
+
   @override
   String toString() => 'GeoCoordNative{lat: $lat, lon: $lon}';
 }
@@ -32,19 +32,14 @@ class GeoBoundaryNative extends Struct<GeoBoundaryNative> {
   int numVerts;
 
   /// vertices in ccw order
-  Pointer<GeoCoordNative> verts;
+  Iterable<GeoCoordNative> get verts sync* {
+    final int sizeOfVerts = GeoCoordNative.size * numVerts;
 
-  // Please ensure to [free] the memory manually!
-  static Pointer<GeoBoundaryNative> allocate(List<GeoCoord> coordinates) {
-    final Pointer<GeoCoordNative> verts = Pointer<GeoCoordNative>.allocate(count: coordinates.length);
-    for (int i = 0; i < coordinates.length; i++) {
-      verts.elementAt(i).load<GeoCoordNative>().lat = coordinates[i].lat;
-      verts.elementAt(i).load<GeoCoordNative>().lon = coordinates[i].lon;
+    int offset = 8; // one int + padding
+    while (offset < sizeOfVerts) {
+      yield addressOf.offsetBy(offset).cast<GeoCoordNative>().load();
+      offset += GeoCoordNative.size;
     }
-
-    return Pointer<GeoBoundaryNative>.allocate()
-      ..load<GeoBoundaryNative>().numVerts = coordinates.length
-      ..load<GeoBoundaryNative>().verts = verts;
   }
 
   @override

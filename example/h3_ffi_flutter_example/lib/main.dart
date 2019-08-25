@@ -1,7 +1,14 @@
+import 'dart:ffi';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:h3_ffi/h3_ffi.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  initializeH3(Platform.isIOS ? (String name) => DynamicLibrary.process() : null);
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -28,13 +35,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(geoToH3(
+        child: Text('0x${geoToH3(
           GeoCoord.degrees(
             lat: 40.68942184369929,
             lon: -74.04443139990863,
           ),
           10,
-        ).toRadixString(16)),
+        ).toRadixString(16).toUpperCase()}'),
       ),
     );
   }

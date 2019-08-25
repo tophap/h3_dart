@@ -1,10 +1,3 @@
-def flutterProjectRoot = rootProject.projectDir.parentFile.toPath()
-def nativeExtensions = new Properties()
-def nativeExtensionsFile = new File(flutterProjectRoot.toFile(), '.native-extensions')
-if (nativeExtensionsFile.exists()) {
-    nativeExtensionsFile.withReader('UTF-8') { reader -> nativeExtensions.load(reader) }
-}
-
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -69,10 +62,10 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    nativeExtensions.each { name, _ ->
-        implementation project(":$name")
+    gradle.ext.EXTENSION_PROJECTS.each {
+        implementation project(":${it}")
     }
 }

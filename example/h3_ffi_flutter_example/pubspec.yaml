@@ -12,7 +12,6 @@ dependencies:
   cupertino_icons: ^0.1.2
   h3_ffi:
     path: ../../
-  firebase_core: any
 
 dev_dependencies:
   flutter_test:

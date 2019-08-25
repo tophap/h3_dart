@@ -24,4 +24,14 @@ nativeExtensions.each { name, path ->
     def nativeExtensionDirectory = flutterProjectRoot.resolve(path).resolve('android').toFile()
     include ":$name"
     project(":$name").projectDir = nativeExtensionDirectory
+
+    println(gradle)
+    def list
+    try {
+        list = gradle.ext.get('EXTENSION_PROJECTS')
+    } catch (e) {
+        list = []
+    }
+    list.add(name)
+    gradle.ext.EXTENSION_PROJECTS = list
 }

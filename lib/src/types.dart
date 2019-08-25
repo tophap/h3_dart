@@ -39,8 +39,6 @@ class GeoBoundary {
 
   final List<GeoCoord> coordinates;
 
-  Pointer<GeoBoundaryNative> get _pointer => GeoBoundaryNative.allocate(coordinates);
-
   @override
   String toString() => 'GeoBoundary{coordinates: $coordinates}';
 

@@ -1,4 +1,7 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.14)
+project(h3)
+
+set(CMAKE_CXX_STANDARD 17)
 
 list(APPEND H3_COMPILE_FLAGS -Wall)
 
@@ -8,6 +11,7 @@ include_directories(h3/src/h3lib/include)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(LIB_SOURCE_FILES
+        dart_shim.cpp
         h3/src/h3lib/include/bbox.h
         h3/src/h3lib/include/polygon.h
         h3/src/h3lib/include/polygonAlgos.h

@@ -4,6 +4,8 @@
 
 part of h3_ffi;
 
+const double _epsilon = 1e-9;
+
 class GeoCoord {
   const GeoCoord({this.lat = 0.0, this.lon = 0.0});
 
@@ -21,14 +23,26 @@ class GeoCoord {
   Pointer<GeoCoordNative> get _pointer => GeoCoordNative.allocate(lat, lon);
 
   @override
-  String toString() {
-    return 'GeoCoord{lat: $latDeg, lon: $lonDeg}';
-  }
+  String toString() => 'GeoCoord{lat: $latDeg, lon: $lonDeg}';
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GeoCoord && runtimeType == other.runtimeType && lat == other.lat && lon == other.lon;
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other is! GeoCoord || runtimeType != other.runtimeType) {
+      return false;
+    }
+
+    if (other is GeoCoord) {
+      if ((latDeg - other.latDeg).abs() >= _epsilon) {
+        return false;
+      }
+
+      return (lon - other.lon).abs() <= _epsilon;
+    }
+    return false;
+  }
 
   @override
   int get hashCode => lat.hashCode ^ lon.hashCode;

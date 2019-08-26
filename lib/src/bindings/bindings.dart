@@ -19,7 +19,8 @@ class _H3Bindings {
 
     geoToH3 = h3.lookup<NativeFunction<geoToH3_native_t>>('geoToH3').asFunction();
     h3ToGeo = h3.lookup<NativeFunction<h3ToGeo_native_t>>('h3ToGeo').asFunction();
-    h3ToGeoBoundary = h3.lookup<NativeFunction<h3ToGeoBoundary_native_t>>('h3ToGeoBoundary').asFunction();
+    h3ToGeoBoundary = h3.lookup<NativeFunction<h3ToGeoBoundary_native_t>>('h3ToGeoBoundary_dart').asFunction();
+    maxKringSize = h3.lookup<NativeFunction<maxKringSize_native_t>>('maxKringSize').asFunction();
   }
 
   /// Find the H3 index of the resolution [res] cell containing the lat/lon [g]
@@ -29,7 +30,10 @@ class _H3Bindings {
   void Function(int h3, Pointer<GeoCoordNative> g) h3ToGeo;
 
   /// Give the cell boundary in lat/lon coordinates for the cell h3
-  void Function(int h3, Pointer<GeoBoundaryNative> gp) h3ToGeoBoundary;
+  int Function(int h3, Pointer<GeoCoordNative> g) h3ToGeoBoundary;
+
+  /// Maximum number of hexagons in k-ring
+  int Function(int k) maxKringSize;
 }
 
 _H3Bindings _cachedBindings;

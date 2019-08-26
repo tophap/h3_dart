@@ -9,3 +9,6 @@ environment:
 
 dependencies:
   collection: ^1.14.0
+
+dev_dependencies:
+  test: any

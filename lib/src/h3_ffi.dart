@@ -3,6 +3,7 @@ part of h3_ffi;
 bool _initialized = false;
 
 void initializeH3([LibraryLoader loader]) {
+  assert(!_initialized);
   bindings.initialize(loader);
   _initialized = true;
 }
@@ -31,21 +32,24 @@ GeoCoord h3ToGeo(int h3) {
 }
 
 /// Give the cell boundary in lat/lon coordinates for the cell [h3]
-GeoBoundary h3ToGeoBoundary(int h3) {
+List<GeoCoord> h3ToGeoBoundary(int h3) {
   assert(_initialized);
 
-  final Pointer<GeoBoundaryNative> gp = Pointer<GeoBoundaryNative>.allocate(count: 10 * GeoCoordNative.size);
-  bindings.h3ToGeoBoundary(h3, gp);
+  final Pointer<GeoCoordNative> gp = Pointer<GeoCoordNative>.allocate(count: 100);
+  final int verts = bindings.h3ToGeoBoundary(h3, gp);
 
   final List<GeoCoord> coordinates = <GeoCoord>[];
-  final GeoBoundaryNative boundary = gp.load();
-
-  print(boundary.numVerts);
-
-  for (GeoCoordNative vert in boundary.verts) {
+  for (int i = 0; i < verts; i++) {
+    final GeoCoordNative vert = gp.elementAt(i).load();
     coordinates.add(GeoCoord(lat: vert.lat, lon: vert.lon));
   }
   gp.free();
 
-  return GeoBoundary(coordinates);
+  return coordinates;
+}
+
+/// Maximum number of hexagons in k-ring
+int maxKringSize(int k) {
+  assert(_initialized);
+  return bindings.maxKringSize(k);
 }

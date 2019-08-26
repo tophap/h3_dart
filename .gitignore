@@ -87,4 +87,5 @@ android/.externalNativeBuild
 
 ios/**/*
 !ios/h3.podspec
+!ios/dart_shim.cpp
 !ios/CMakeLists.txt

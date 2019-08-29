@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:collection/collection.dart';
 import 'package:h3_ffi/src/bindings/bindings.dart';
 import 'package:h3_ffi/src/bindings/types.dart';
+import 'package:h3_ffi/src/errors.dart';
 
 part 'src/h3_ffi.dart';
 

@@ -21,6 +21,9 @@ class _H3Bindings {
     h3ToGeo = h3.lookup<NativeFunction<h3ToGeo_native_t>>('h3ToGeo').asFunction();
     h3ToGeoBoundary = h3.lookup<NativeFunction<h3ToGeoBoundary_native_t>>('h3ToGeoBoundary_dart').asFunction();
     maxKringSize = h3.lookup<NativeFunction<maxKringSize_native_t>>('maxKringSize').asFunction();
+    hexRange = h3.lookup<NativeFunction<hexRange_native_t>>('hexRange').asFunction();
+    hexRangeDistances = h3.lookup<NativeFunction<hexRangeDistances_native_t>>('hexRangeDistances').asFunction();
+    hexRanges = h3.lookup<NativeFunction<hexRanges_native_t>>('hexRanges').asFunction();
   }
 
   /// Find the H3 index of the resolution [res] cell containing the lat/lon [g]
@@ -34,6 +37,15 @@ class _H3Bindings {
 
   /// Maximum number of hexagons in k-ring
   int Function(int k) maxKringSize;
+
+  /// Hexagons neighbors in all directions, assuming no pentagons
+  int Function(int origin, int k, Pointer<Uint64> out) hexRange;
+
+  /// Hexagon neighbors in all directions, reporting distance from origin
+  int Function(int origin, int k, Pointer<Uint64> out, Pointer<Int32> distances) hexRangeDistances;
+
+  /// Collection of hex rings sorted by ring for all given hexagons
+  int Function(Pointer<Uint64> h3Set, int length, int k, Pointer<Uint64> out) hexRanges;
 }
 
 _H3Bindings _cachedBindings;

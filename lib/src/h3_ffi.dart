@@ -8,7 +8,10 @@ void initializeH3([LibraryLoader loader]) {
   _initialized = true;
 }
 
-/// Find the H3 index of the resolution [res] cell containing the lat/lon [g]
+/// Encodes [g] (coordinate on the sphere) to the H3 index of the containing cell at
+/// the specified [resolution].
+///
+/// Returns the encoded H3Index (or 0 on failure).
 int geoToH3(GeoCoord g, int resolution) {
   assert(_initialized);
 
@@ -18,7 +21,7 @@ int geoToH3(GeoCoord g, int resolution) {
   return geoToH3;
 }
 
-/// Find the lat/lon center point g of the cell [h3]
+/// Determines the spherical coordinates of the center point of an [h3] index.
 GeoCoord h3ToGeo(int h3) {
   assert(_initialized);
 
@@ -31,7 +34,7 @@ GeoCoord h3ToGeo(int h3) {
   return result;
 }
 
-/// Give the cell boundary in lat/lon coordinates for the cell [h3]
+/// Determines the cell boundary in spherical coordinates for an [h3] index.
 List<GeoCoord> h3ToGeoBoundary(int h3) {
   assert(_initialized);
 
@@ -48,8 +51,108 @@ List<GeoCoord> h3ToGeoBoundary(int h3) {
   return coordinates;
 }
 
-/// Maximum number of hexagons in k-ring
+/// Maximum number of indices that result from the kRing algorithm with the given
+/// k. Formula source and proof: https://oeis.org/A003215
 int maxKringSize(int k) {
   assert(_initialized);
   return bindings.maxKringSize(k);
+}
+
+/// Produces indexes within [k] distance of the origin index.
+///
+/// Throws [PentagonH3Error] when one of the indexes returned by this
+/// function is a pentagon or [PentagonDistortionH3Error] when it is
+/// in the pentagon distortion area.
+///
+/// k-ring 0 is defined as the origin index, k-ring 1 is defined as k-ring 0 and
+/// all neighboring indexes, and so on.
+///
+/// Return a list of indexes in order of increasing distance from the origin.
+List<int> hexRange(int origin, int k) {
+  assert(k >= 0);
+
+  final int size = maxKringSize(k);
+  final Pointer<Uint64> out = Pointer<Uint64>.allocate(count: size);
+  final int result = bindings.hexRange(origin, k, out);
+
+  if (result == 0) {
+    final List<int> list = out.asExternalTypedData(count: size).buffer.asUint64List().toList();
+    out.free();
+    return list;
+  } else {
+    if (result == 1) {
+      throw PentagonH3Error();
+    } else {
+      assert(result == 2);
+      throw PentagonDistortionH3Error();
+    }
+  }
+}
+
+/// Produces indexes within [k] distance of the origin index.
+///
+/// Throws [PentagonH3Error] when one of the indexes returned by this
+/// function is a pentagon or [PentagonDistortionH3Error] when it is
+/// in the pentagon distortion area.
+///
+/// k-ring 0 is defined as the origin index, k-ring 1 is defined as k-ring 0 and
+/// all neighboring indexes, and so on.
+///
+/// Return the indexes in order of increasing distance from the origin, mapped to
+/// their respective distances.
+Map<int, int> hexRangeDistances(int origin, int k) {
+  assert(k >= 0);
+
+  final int size = maxKringSize(k);
+  final Pointer<Uint64> out = Pointer<Uint64>.allocate(count: size);
+  final Pointer<Int32> distances = Pointer<Int32>.allocate(count: size);
+  final int result = bindings.hexRangeDistances(origin, k, out, distances);
+
+  if (result == 0) {
+    final Map<int, int> map = Map<int, int>.fromIterables(out.asExternalTypedData(count: size).buffer.asUint64List(),
+        distances.asExternalTypedData(count: size).buffer.asInt32List());
+
+    out.free();
+    distances.free();
+
+    return map;
+  } else {
+    if (result == 1) {
+      throw PentagonH3Error();
+    } else {
+      assert(result == 2);
+      throw PentagonDistortionH3Error();
+    }
+  }
+}
+
+/// Takes an set of input hex IDs and a max [k]-ring and returns an
+/// list of hexagon IDs sorted first by the original hex IDs and then by the
+/// k-ring (0 to max), with no guaranteed sorting within each k-ring group.
+///
+/// Throws [PentagonH3Error] when one of the indexes returned by this
+/// function is a pentagon or [PentagonDistortionH3Error] when it is
+/// in the pentagon distortion area.
+List<int> hexRanges(Set<int> h3Set, int k) {
+  final int size = maxKringSize(k) * h3Set.length;
+  final Pointer<Uint64> out = Pointer<Uint64>.allocate(count: size);
+  final Pointer<Uint64> h3SetPtr = Pointer<Uint64>.allocate(count: h3Set.length);
+  for (int i = 0; i < h3Set.length; i++) {
+    h3SetPtr.elementAt(i).store(h3Set.elementAt(i));
+  }
+
+  final int result = bindings.hexRanges(h3SetPtr, h3Set.length, k, out);
+
+  if (result == 0) {
+    final List<int> list = out.asExternalTypedData(count: size).buffer.asUint64List().toList();
+    out.free();
+    return list;
+  } else {
+    if (result == 1) {
+      throw PentagonH3Error();
+    } else {
+      assert(result == 2);
+      throw PentagonDistortionH3Error();
+    }
+  }
 }

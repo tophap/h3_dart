@@ -51,7 +51,3 @@ set(CONFIGURED_API_HEADER ../h3/src/h3lib/include/h3api.h)
 configure_file(${UNCONFIGURED_API_HEADER} ${CONFIGURED_API_HEADER})
 
 add_library(h3 SHARED ${LIB_SOURCE_FILES} ${CONFIGURED_API_HEADER})
-
-add_library(h3-static STATIC ${LIB_SOURCE_FILES} ${CONFIGURED_API_HEADER})
-set_target_properties(h3-static PROPERTIES OUTPUT_NAME "h3")
-

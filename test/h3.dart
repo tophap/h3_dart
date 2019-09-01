@@ -250,6 +250,25 @@ void main() {
       },
     );
   });
+
+  test('hexRing', () {
+    List<int> result = hexRing(0x89283080dcbffff, 0);
+    expect(result.length, 1);
+    expect(result.first, 0x89283080dcbffff);
+
+    result = hexRing(0x89283080dcbffff, 1);
+    expect(
+      result,
+      <int>[
+        0x89283080ddbffff,
+        0x89283080c37ffff,
+        0x89283080c27ffff,
+        0x89283080d53ffff,
+        0x89283080dcfffff,
+        0x89283080dc3ffff,
+      ],
+    );
+  });
 }
 
 // ignore: unused_element

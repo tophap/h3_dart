@@ -25,8 +25,9 @@ typedef kRing_native_t = Void Function(Uint64 origin, Int32 k, Pointer<Uint64> o
 
 typedef kRingDistances_native_t = Void Function(Uint64 origin, Int32 k, Pointer<Uint64> out, Pointer<Int32> distances);
 
-/*
 typedef hexRing_native_t = Int32 Function(Uint64 origin, Int32 k, Pointer<Uint64> out);
+
+/*
 typedef maxPolyfillSize_native_t = Int32 Function(Pointer<GeoPolygon> geoPolygon, Int32 res);
 typedef polyfill_native_t = Void Function(Pointer<GeoPolygon> geoPolygon, Int32 res, Pointer<Uint64> out);
 typedef h3SetToLinkedGeo_native_t = Void Function(Pointer<Uint64> h3Set, Int32 numHexes, Pointer<LinkedGeoPolygon> out);

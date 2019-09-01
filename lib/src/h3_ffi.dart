@@ -200,3 +200,35 @@ Map<int, int> kRingDistances(int origin, int k) {
 
   return map;
 }
+
+/// Returns the "hollow" ring of hexagons at exactly grid distance [k] from
+/// the [origin] hexagon. In particular, k=0 returns just the origin hexagon.
+///
+/// A nonzero failure code may be returned in some cases, for example,
+/// if a pentagon is encountered.
+/// Failure cases may be fixed in future versions.
+///
+/// Throws [PentagonH3Error] when one of the indexes returned by this
+/// function is a pentagon or [PentagonDistortionH3Error] when it is
+/// in the pentagon distortion area.
+List<int> hexRing(int origin, int k) {
+  assert(k >= 0);
+
+  final int size = k == 0 ? 1 : 6 * k;
+  final Pointer<Uint64> out = Pointer<Uint64>.allocate(count: size);
+
+  final int result = bindings.hexRing(origin, k, out);
+
+  if (result == 0) {
+    final List<int> list = out.asExternalTypedData(count: size).buffer.asUint64List().toList();
+    out.free();
+    return list;
+  } else {
+    if (result == 1) {
+      throw PentagonH3Error();
+    } else {
+      assert(result == 2);
+      throw PentagonDistortionH3Error();
+    }
+  }
+}

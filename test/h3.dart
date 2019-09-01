@@ -171,14 +171,43 @@ void main() {
       0x89283080dd3ffff
     ]);
   });
+
+  test('kRing', () {
+    final List<int> result = kRing(0x89283082b7bffff, 2);
+
+    expect(result, <int>[
+      0x89283082b7bffff,
+      0x89283082b4fffff,
+      0x89283080cb7ffff,
+      0x89283082b6bffff,
+      0x89283082b63ffff,
+      0x89283082b73ffff,
+      0x89283082b47ffff,
+      0x89283082b43ffff,
+      0x89283082b4bffff,
+      0x89283080cb3ffff,
+      0x89283080ca3ffff,
+      0x89283080ca7ffff,
+      0x89283080dd3ffff,
+      0x89283082b6fffff,
+      0x89283082b67ffff,
+      0x89283082b77ffff,
+      0x89283082b0fffff,
+      0x89283082b0bffff,
+      0x89283082b57ffff
+    ]);
+  });
 }
 
 // ignore: unused_element
-void _printGeoJson(List<int> data) {
-  print(jsonEncode(<String, dynamic>{
+String _printGeoJson(List<int> data) {
+  final String value = jsonEncode(<String, dynamic>{
     'type': 'FeatureCollection',
     'features': data.map(_h3ToGeoJson).toList(),
-  }));
+  });
+  print(value);
+
+  return value;
 }
 
 Map<String, dynamic> _h3ToGeoJson(int h3) {
@@ -199,3 +228,6 @@ Map<String, dynamic> _h3ToGeoJson(int h3) {
     }
   };
 }
+
+// ignore: unused_element
+String _hex(int h3) => '0x${h3.toRadixString(16)}';

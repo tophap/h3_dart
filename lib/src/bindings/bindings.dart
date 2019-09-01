@@ -24,6 +24,8 @@ class _H3Bindings {
     hexRange = h3.lookup<NativeFunction<hexRange_native_t>>('hexRange').asFunction();
     hexRangeDistances = h3.lookup<NativeFunction<hexRangeDistances_native_t>>('hexRangeDistances').asFunction();
     hexRanges = h3.lookup<NativeFunction<hexRanges_native_t>>('hexRanges').asFunction();
+    kRing = h3.lookup<NativeFunction<kRing_native_t>>('kRing').asFunction();
+    kRingDistances = h3.lookup<NativeFunction<kRingDistances_native_t>>('kRingDistances').asFunction();
   }
 
   /// Find the H3 index of the resolution [res] cell containing the lat/lon [g]
@@ -46,6 +48,12 @@ class _H3Bindings {
 
   /// Collection of hex rings sorted by ring for all given hexagons
   int Function(Pointer<Uint64> h3Set, int length, int k, Pointer<Uint64> out) hexRanges;
+
+  /// Hexagon neighbors in all directions
+  void Function(int origin, int k, Pointer<Uint64> out) kRing;
+
+  /// Hexagon neighbors in all directions, reporting distance from origin
+  void Function(int origin, int k, Pointer<Uint64> out, Pointer<Int32> distances) kRingDistances;
 }
 
 _H3Bindings _cachedBindings;

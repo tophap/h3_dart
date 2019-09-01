@@ -17,7 +17,7 @@ A new Flutter project.
   s.author           = { 'Your Company' => 'email@example.com' }
 
   s.source           = { :path => '.' }
-  s.source_files = 'h3/src/h3lib/**/*'
+  s.source_files = 'h3/src/h3lib/**/*', 'dart_shim.cpp'
   s.public_header_files = 'h3/src/h3lib/**/*.h'
   s.prepare_command = <<-CMD
       if [ -d ./h3 ]
@@ -31,7 +31,7 @@ A new Flutter project.
       cmake ..
       make h3
     CMD
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 end
 
 

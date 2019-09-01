@@ -165,6 +165,8 @@ List<int> hexRanges(Set<int> h3Set, int k) {
 /// Elements of the return list may be left zero, as can happen when crossing a
 /// pentagon.
 List<int> kRing(int origin, int k) {
+  assert(k >= 0);
+
   final int size = maxKringSize(k);
   final Pointer<Uint64> out = Pointer<Uint64>.allocate(count: size);
 
@@ -173,4 +175,28 @@ List<int> kRing(int origin, int k) {
   final List<int> list = out.asExternalTypedData(count: size).buffer.asUint64List().toList();
   out.free();
   return list;
+}
+
+/// k-rings produces indices within [k] distance of the [origin] index.
+///
+/// k-ring 0 is defined as the origin index, k-ring 1 is defined as k-ring 0 and
+/// all neighboring indices, and so on.
+///
+/// Elements of the return list may be left zero, as can happen when crossing a
+/// pentagon.
+Map<int, int> kRingDistances(int origin, int k) {
+  assert(k >= 0);
+
+  final int size = maxKringSize(k);
+  final Pointer<Uint64> out = Pointer<Uint64>.allocate(count: size);
+  final Pointer<Int32> distances = Pointer<Int32>.allocate(count: size);
+  bindings.kRingDistances(origin, k, out, distances);
+
+  final Map<int, int> map = Map<int, int>.fromIterables(out.asExternalTypedData(count: size).buffer.asUint64List(),
+      distances.asExternalTypedData(count: size).buffer.asInt32List());
+
+  out.free();
+  distances.free();
+
+  return map;
 }

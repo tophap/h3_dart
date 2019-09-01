@@ -82,7 +82,7 @@ void main() {
         0x845adc9ffffffff,
         0x845ac23ffffffff,
         0x845ac21ffffffff,
-        0x845ac2dffffffff
+        0x845ac2dffffffff,
       ],
     );
   });
@@ -111,7 +111,7 @@ void main() {
         0x845adc9ffffffff: 2,
         0x845ac23ffffffff: 2,
         0x845ac21ffffffff: 2,
-        0x845ac2dffffffff: 2
+        0x845ac2dffffffff: 2,
       },
     );
   });
@@ -126,76 +126,129 @@ void main() {
       0x89283080dc3ffff,
     }, 1);
 
-    expect(result, <int>[
-      0x89283080ddbffff,
-      0x89283080cafffff,
-      0x89283080c37ffff,
-      0x89283080dcbffff,
-      0x89283080dc3ffff,
-      0x89283080dd3ffff,
-      0x89283080ca7ffff,
-      0x89283080c37ffff,
-      0x89283080c33ffff,
-      0x89283080c23ffff,
-      0x89283080c27ffff,
-      0x89283080dcbffff,
-      0x89283080ddbffff,
-      0x89283080cafffff,
-      0x89283080c27ffff,
-      0x89283080c23ffff,
-      0x89283080c2fffff,
-      0x89283080d5bffff,
-      0x89283080d53ffff,
-      0x89283080dcbffff,
-      0x89283080c37ffff,
-      0x89283080d53ffff,
-      0x89283080c27ffff,
-      0x89283080d5bffff,
-      0x89283080d43ffff,
-      0x89283080d57ffff,
-      0x89283080dcfffff,
-      0x89283080dcbffff,
-      0x89283080dcfffff,
-      0x89283080dcbffff,
-      0x89283080d53ffff,
-      0x89283080d57ffff,
-      0x89283080d1bffff,
-      0x89283080dc7ffff,
-      0x89283080dc3ffff,
-      0x89283080dc3ffff,
-      0x89283080ddbffff,
-      0x89283080dcbffff,
-      0x89283080dcfffff,
-      0x89283080dc7ffff,
-      0x89283080dd7ffff,
-      0x89283080dd3ffff
-    ]);
+    expect(
+      result,
+      <int>[
+        0x89283080ddbffff,
+        0x89283080cafffff,
+        0x89283080c37ffff,
+        0x89283080dcbffff,
+        0x89283080dc3ffff,
+        0x89283080dd3ffff,
+        0x89283080ca7ffff,
+        0x89283080c37ffff,
+        0x89283080c33ffff,
+        0x89283080c23ffff,
+        0x89283080c27ffff,
+        0x89283080dcbffff,
+        0x89283080ddbffff,
+        0x89283080cafffff,
+        0x89283080c27ffff,
+        0x89283080c23ffff,
+        0x89283080c2fffff,
+        0x89283080d5bffff,
+        0x89283080d53ffff,
+        0x89283080dcbffff,
+        0x89283080c37ffff,
+        0x89283080d53ffff,
+        0x89283080c27ffff,
+        0x89283080d5bffff,
+        0x89283080d43ffff,
+        0x89283080d57ffff,
+        0x89283080dcfffff,
+        0x89283080dcbffff,
+        0x89283080dcfffff,
+        0x89283080dcbffff,
+        0x89283080d53ffff,
+        0x89283080d57ffff,
+        0x89283080d1bffff,
+        0x89283080dc7ffff,
+        0x89283080dc3ffff,
+        0x89283080dc3ffff,
+        0x89283080ddbffff,
+        0x89283080dcbffff,
+        0x89283080dcfffff,
+        0x89283080dc7ffff,
+        0x89283080dd7ffff,
+        0x89283080dd3ffff,
+      ],
+    );
   });
 
   test('kRing', () {
     final List<int> result = kRing(0x89283082b7bffff, 2);
 
-    expect(result, <int>[
-      0x89283082b7bffff,
-      0x89283082b4fffff,
-      0x89283080cb7ffff,
-      0x89283082b6bffff,
-      0x89283082b63ffff,
-      0x89283082b73ffff,
-      0x89283082b47ffff,
-      0x89283082b43ffff,
-      0x89283082b4bffff,
-      0x89283080cb3ffff,
-      0x89283080ca3ffff,
-      0x89283080ca7ffff,
-      0x89283080dd3ffff,
-      0x89283082b6fffff,
-      0x89283082b67ffff,
-      0x89283082b77ffff,
-      0x89283082b0fffff,
-      0x89283082b0bffff,
-      0x89283082b57ffff
-    ]);
+    expect(
+      result,
+      <int>[
+        0x89283082b7bffff,
+        0x89283082b4fffff,
+        0x89283080cb7ffff,
+        0x89283082b6bffff,
+        0x89283082b63ffff,
+        0x89283082b73ffff,
+        0x89283082b47ffff,
+        0x89283082b43ffff,
+        0x89283082b4bffff,
+        0x89283080cb3ffff,
+        0x89283080ca3ffff,
+        0x89283080ca7ffff,
+        0x89283080dd3ffff,
+        0x89283082b6fffff,
+        0x89283082b67ffff,
+        0x89283082b77ffff,
+        0x89283082b0fffff,
+        0x89283082b0bffff,
+        0x89283082b57ffff,
+      ],
+    );
+  });
+
+  test('kRingDistances', () {
+    final Map<int, int> result = kRingDistances(0x89283082b7bffff, 3);
+
+    expect(
+      result,
+      <int, int>{
+        0x89283082b7bffff: 0,
+        0x89283082b4fffff: 1,
+        0x89283080cb7ffff: 1,
+        0x89283082b6bffff: 1,
+        0x89283082b63ffff: 1,
+        0x89283082b73ffff: 1,
+        0x89283082b47ffff: 1,
+        0x89283082b43ffff: 2,
+        0x89283082b4bffff: 2,
+        0x89283080cb3ffff: 2,
+        0x89283080ca3ffff: 2,
+        0x89283080ca7ffff: 2,
+        0x89283080dd3ffff: 2,
+        0x89283082b6fffff: 2,
+        0x89283082b67ffff: 2,
+        0x89283082b77ffff: 2,
+        0x89283082b0fffff: 2,
+        0x89283082b0bffff: 2,
+        0x89283082b57ffff: 2,
+        0x89283082b53ffff: 3,
+        0x89283082b5bffff: 3,
+        0x89283080c97ffff: 3,
+        0x89283080c87ffff: 3,
+        0x89283080cbbffff: 3,
+        0x89283080cabffff: 3,
+        0x89283080cafffff: 3,
+        0x89283080ddbffff: 3,
+        0x89283080dc3ffff: 3,
+        0x89283080dd7ffff: 3,
+        0x89283080d9bffff: 3,
+        0x89283080d93ffff: 3,
+        0x89283082b2bffff: 3,
+        0x89283082b3bffff: 3,
+        0x89283082b07ffff: 3,
+        0x89283082b03ffff: 3,
+        0x89283082b1bffff: 3,
+        0x89283082bcfffff: 3,
+      },
+    );
   });
 }
 
@@ -210,13 +263,13 @@ String _printGeoJson(List<int> data) {
   return value;
 }
 
-Map<String, dynamic> _h3ToGeoJson(int h3) {
+Map<String, dynamic> _h3ToGeoJson(int h3, [Map<String, dynamic> properties]) {
   final List<List<double>> coordinates =
       h3ToGeoBoundary(h3).map((GeoCoord it) => <double>[it.lonDeg, it.latDeg]).toList();
 
   return <String, dynamic>{
     'type': 'Feature',
-    'properties': <String, dynamic>{},
+    'properties': properties ?? <String, dynamic>{},
     'geometry': <String, dynamic>{
       'type': 'Polygon',
       'coordinates': <List<List<double>>>[

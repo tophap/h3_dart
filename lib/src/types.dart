@@ -13,14 +13,17 @@ class GeoCoord {
     return GeoCoord(lat: degToRad(lat), lon: degToRad(lon));
   }
 
+  /// latitude in radians
   final double lat;
+
+  /// longitude in radians
   final double lon;
 
   double get latDeg => radToDeg(lat);
 
   double get lonDeg => radToDeg(lon);
 
-  Pointer<GeoCoordNative> get _pointer => GeoCoordNative.allocate(lat, lon);
+  Pointer<GeoCoordNative> get _pointer => GeoCoordNative.allocates(lat, lon);
 
   @override
   String toString() => 'GeoCoord{lat: $latDeg, lon: $lonDeg}';
@@ -48,23 +51,49 @@ class GeoCoord {
   int get hashCode => lat.hashCode ^ lon.hashCode;
 }
 
+/// cell boundary in latitude/longitude
 class GeoBoundary {
-  const GeoBoundary(this.coordinates);
+  const GeoBoundary(this.vertices);
 
-  final List<GeoCoord> coordinates;
+  /// vertices in ccw order
+  final List<GeoCoord> vertices;
 
   @override
-  String toString() => 'GeoBoundary{coordinates: $coordinates}';
+  String toString() => 'GeoBoundary{vertices: $vertices}';
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is GeoBoundary &&
           runtimeType == other.runtimeType &&
-          const ListEquality<GeoCoord>().equals(coordinates, other.coordinates);
+          const ListEquality<GeoCoord>().equals(vertices, other.vertices);
 
   @override
-  int get hashCode => const ListEquality<GeoCoord>().hash(coordinates);
+  int get hashCode => const ListEquality<GeoCoord>().hash(vertices);
+}
+
+/// Simplified core of GeoJSON Polygon coordinates definition
+class GeoPolygon {
+  GeoPolygon(this.geofence, this.holes);
+
+  /// exterior boundary of the polygon
+  final List<GeoCoord> geofence;
+
+  /// interior boundaries (holes) in the polygon
+  final List<List<GeoCoord>> holes;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GeoPolygon &&
+          runtimeType == other.runtimeType &&
+          const DeepCollectionEquality().equals(geofence, other.geofence) &&
+          const DeepCollectionEquality().equals(holes, other.holes);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(geofence) ^ //
+      const DeepCollectionEquality().hash(holes);
 }
 
 num degToRad(num deg) => deg * (pi / 180.0);

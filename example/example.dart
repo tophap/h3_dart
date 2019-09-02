@@ -8,15 +8,23 @@ import 'package:h3_ffi/h3_ffi.dart';
 
 Future<void> main() async {
   initializeH3((_) => DynamicLibrary.open('ios/cmake-build-debug/libh3.dylib'));
+  const List<GeoCoord> geofence = <GeoCoord>[
+    GeoCoord(lat: 0.8, lon: 0.3),
+    GeoCoord(lat: 0.7, lon: 0.6),
+    GeoCoord(lat: 1.1, lon: 0.7),
+    GeoCoord(lat: 1.0, lon: 0.2),
+  ];
 
-  final GeoCoord coord = GeoCoord.degrees(lat: 40.68942184369929, lon: -74.04443139990863);
-  final int h3 = geoToH3(coord, 10);
-  print('h3: 0x${h3.toRadixString(16).toUpperCase()}');
+  const List<List<GeoCoord>> holes = <List<GeoCoord>>[
+    <GeoCoord>[
+      GeoCoord(lat: 0.9, lon: 0.3),
+      GeoCoord(lat: 0.9, lon: 0.5),
+      GeoCoord(lat: 1.0, lon: 0.7),
+      GeoCoord(lat: 0.9, lon: 0.3),
+    ],
+  ];
 
-  final GeoCoord result = h3ToGeo(h3);
-  print('coord: $result');
-
-  final List<GeoCoord> coordinates = h3ToGeoBoundary(0x8B0A00000000FFF);
-
-  print('boundary: $coordinates');
+  for (int i = 0; i < 10000000; i++) {
+    print(maxPolyfillSize(GeoPolygon(geofence, holes), 2));
+  }
 }

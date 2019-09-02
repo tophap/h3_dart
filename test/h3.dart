@@ -269,6 +269,26 @@ void main() {
       ],
     );
   });
+
+  test('maxPolyfillSize', () {
+    const List<GeoCoord> geofence = <GeoCoord>[
+      GeoCoord(lat: 0.8, lon: 0.3),
+      GeoCoord(lat: 0.7, lon: 0.6),
+      GeoCoord(lat: 1.1, lon: 0.7),
+      GeoCoord(lat: 1.0, lon: 0.2),
+    ];
+
+    const List<List<GeoCoord>> holes = <List<GeoCoord>>[
+      <GeoCoord>[
+        GeoCoord(lat: 0.9, lon: 0.3),
+        GeoCoord(lat: 0.9, lon: 0.5),
+        GeoCoord(lat: 1.0, lon: 0.7),
+        GeoCoord(lat: 0.9, lon: 0.3),
+      ],
+    ];
+
+    expect(maxPolyfillSize(GeoPolygon(geofence, holes), 2), 169);
+  });
 }
 
 // ignore: unused_element

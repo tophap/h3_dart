@@ -232,3 +232,16 @@ List<int> hexRing(int origin, int k) {
     }
   }
 }
+
+/// The number of hexagons to allocate space for when performing a polyfill on
+/// the [geoPolygon], a GeoJSON-like data structure at a give [resolution].
+int maxPolyfillSize(GeoPolygon geoPolygon, int resolution) {
+  assert(resolution >= 0 && resolution <= 15);
+
+  final GeoPolygonNative native = GeoPolygonNative.allocate(geoPolygon);
+  final int result = bindings.maxPolyfillSize(
+      native.geofence, native.geofenceNum, native.holes, native.holesSizes, native.holesNum, resolution);
+  // native.free();
+
+  return result;
+}

@@ -11,7 +11,8 @@ include_directories(h3/src/h3lib/include)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(LIB_SOURCE_FILES
-        dart_shim.cpp
+        dart_shim.h
+        dart_shim.cc
         h3/src/h3lib/include/bbox.h
         h3/src/h3lib/include/polygon.h
         h3/src/h3lib/include/polygonAlgos.h

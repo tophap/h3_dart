@@ -10,7 +10,7 @@ typedef geoToH3_native_t = Uint64 Function(Pointer<GeoCoordNative> g, Int32 res)
 
 typedef h3ToGeo_native_t = Void Function(Uint64 h3, Pointer<GeoCoordNative> g);
 
-typedef h3ToGeoBoundary_native_t = Int32 Function(Uint64 h3, Pointer<GeoCoordNative> gp);
+typedef h3ToGeoBoundary_dart_native_t = Int32 Function(Uint64 h3, Pointer<GeoCoordNative> gp);
 
 typedef maxKringSize_native_t = Int32 Function(Int32 h3);
 
@@ -26,6 +26,9 @@ typedef kRing_native_t = Void Function(Uint64 origin, Int32 k, Pointer<Uint64> o
 typedef kRingDistances_native_t = Void Function(Uint64 origin, Int32 k, Pointer<Uint64> out, Pointer<Int32> distances);
 
 typedef hexRing_native_t = Int32 Function(Uint64 origin, Int32 k, Pointer<Uint64> out);
+
+typedef maxPolyfillSize_dart_native_t = Int32 Function(Pointer<GeoCoordNative> geofence, Int32 geofenceNum,
+    Pointer<Pointer<GeoCoordNative>> holes, Pointer<Int32> holesSizes, Int32 holesNum, Int32 res);
 
 /*
 typedef maxPolyfillSize_native_t = Int32 Function(Pointer<GeoPolygon> geoPolygon, Int32 res);

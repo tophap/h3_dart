@@ -35,7 +35,7 @@ EXPORT int maxPolyfillSize_shim(const GeoCoord* geofence,
   polygon.holes = *holesPtr;
 
   int result = maxPolyfillSize(&polygon, res);
-  
+
   delete geofencePtr->verts;
   delete geofencePtr;
   for (size_t i = 0; i < holesNum; i++) {
@@ -45,6 +45,32 @@ EXPORT int maxPolyfillSize_shim(const GeoCoord* geofence,
   delete holesPtr;
 
   return result;
+}
+
+EXPORT void polyfill_shim(const GeoCoord* geofence,
+                          int geofenceNum,
+                          GeoCoord** holes,
+                          const int* holesSizes,
+                          int holesNum,
+                          int res,
+                          H3Index* out) {
+  Geofence* geofencePtr = buildGeofenceFromGeoCoord(geofence, geofenceNum);
+  Geofence** holesPtr = buildGeoPolygonHolesFromGeofence(holes, holesSizes, holesNum);
+
+  GeoPolygon polygon;
+  polygon.geofence = *geofencePtr;
+  polygon.numHoles = holesNum;
+  polygon.holes = *holesPtr;
+
+  polyfill(&polygon, res, out);
+
+  delete geofencePtr->verts;
+  delete geofencePtr;
+  for (size_t i = 0; i < holesNum; i++) {
+    delete holesPtr[i]->verts;
+    delete holesPtr[i];
+  }
+  delete holesPtr;
 }
 
 Geofence** buildGeoPolygonHolesFromGeofence(GeoCoord** holes,

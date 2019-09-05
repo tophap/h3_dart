@@ -19,4 +19,12 @@ EXPORT int maxPolyfillSize_shim(const GeoCoord* geofence,
                                 const int* holesSizes,
                                 int holesNum,
                                 int res);
+
+EXPORT void polyfill_shim(const GeoCoord* geofence,
+                          int geofenceNum,
+                          GeoCoord** holes,
+                          const int* holesSizes,
+                          int holesNum,
+                          int res,
+                          H3Index* out);
 #endif //DART_SHIM_H_

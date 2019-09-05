@@ -28,9 +28,16 @@ typedef hexRing_native_t = Int32 Function(Uint64 origin, Int32 k, Pointer<Uint64
 typedef maxPolyfillSize_dart_native_t = Int32 Function(Pointer<GeoCoordNative> geofence, Int32 geofenceNum,
     Pointer<Pointer<GeoCoordNative>> holes, Pointer<Int32> holesSizes, Int32 holesNum, Int32 res);
 
+typedef polyfill_dart_native_t = Void Function(
+    Pointer<GeoCoordNative> geofence,
+    Int32 geofenceNum,
+    Pointer<Pointer<GeoCoordNative>> holes,
+    Pointer<Int32> holesSizes,
+    Int32 holesNum,
+    Int32 res,
+    Pointer<Uint64> out);
+
 /*
-typedef maxPolyfillSize_native_t = Int32 Function(Pointer<GeoPolygon> geoPolygon, Int32 res);
-typedef polyfill_native_t = Void Function(Pointer<GeoPolygon> geoPolygon, Int32 res, Pointer<Uint64> out);
 typedef h3SetToLinkedGeo_native_t = Void Function(Pointer<Uint64> h3Set, Int32 numHexes, Pointer<LinkedGeoPolygon> out);
 typedef destroyLinkedPolygon_native_t = Void Function(Pointer<LinkedGeoPolygon> polygon);
 typedef degsToRads_native_t = double Function(double degrees);

@@ -27,6 +27,7 @@ class _H3Bindings {
     kRingDistances = h3.lookup<NativeFunction<kRingDistances_native_t>>('kRingDistances').asFunction();
     hexRing = h3.lookup<NativeFunction<hexRing_native_t>>('hexRing').asFunction();
     maxPolyfillSize = h3.lookup<NativeFunction<maxPolyfillSize_dart_native_t>>('maxPolyfillSize_shim').asFunction();
+    polyfill = h3.lookup<NativeFunction<polyfill_dart_native_t>>('polyfill_shim').asFunction();
   }
 
   /// Find the H3 index of the resolution [res] cell containing the lat/lon [g]
@@ -65,6 +66,17 @@ class _H3Bindings {
     int holesNum,
     int res,
   ) maxPolyfillSize;
+
+  /// Hexagons within the given geofence
+  void Function(
+    Pointer<GeoCoordNative> geofence,
+    int geofenceNum,
+    Pointer<Pointer<GeoCoordNative>> holes,
+    Pointer<Int32> holesSizes,
+    int holesNum,
+    int res,
+    Pointer<Uint64> out,
+  ) polyfill;
 }
 
 _H3Bindings _cachedBindings;

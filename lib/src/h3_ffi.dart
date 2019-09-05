@@ -238,7 +238,38 @@ int maxPolyfillSize(GeoPolygon geoPolygon, int resolution) {
   final GeoPolygonNative native = GeoPolygonNative.allocate(geoPolygon);
   final int result = bindings.maxPolyfillSize(
       native.geofence, native.geofenceNum, native.holes, native.holesSizes, native.holesNum, resolution);
-  // native.free();
+  native.free();
+
+  return result;
+}
+
+/// Takes a given GeoJSON-like data structure returns the hexagons that are
+/// contained by the GeoJSON-like data structure.
+///
+/// The current implementation is very primitive and slow, but correct,
+/// performing a point-in-poly operation on every hexagon in a k-ring defined
+/// around the given geofence.
+List<int> polyfill(GeoPolygon geoPolygon, int resolution) {
+  assert(resolution >= 0 && resolution <= 15);
+
+  final GeoPolygonNative native = GeoPolygonNative.allocate(geoPolygon);
+  final int size = bindings.maxPolyfillSize(
+      native.geofence, native.geofenceNum, native.holes, native.holesSizes, native.holesNum, resolution);
+
+  final Pointer<Uint64> out = Pointer<Uint64>.allocate(count: size);
+  for (int i = 0; i < size; i++) {
+    out.elementAt(i).store(0);
+  }
+
+  bindings.polyfill(
+      native.geofence, native.geofenceNum, native.holes, native.holesSizes, native.holesNum, resolution, out);
+
+  final Uint64List uint64list = out.asExternalTypedData(count: size);
+  final List<int> result = <int>[];
+  uint64list.forEach(result.add);
+
+  out.free();
+  native.free();
 
   return result;
 }

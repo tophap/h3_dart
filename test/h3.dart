@@ -272,22 +272,65 @@ void main() {
 
   test('maxPolyfillSize', () {
     const List<GeoCoord> geofence = <GeoCoord>[
-      GeoCoord(lat: 0.8, lon: 0.3),
-      GeoCoord(lat: 0.7, lon: 0.6),
-      GeoCoord(lat: 1.1, lon: 0.7),
-      GeoCoord(lat: 1.0, lon: 0.2),
+      GeoCoord(lat: 0.659966917655, lon: -2.1364398519396),
+      GeoCoord(lat: 0.6595011102219, lon: -2.1359434279405),
+      GeoCoord(lat: 0.6583348114025, lon: -2.1354884206045),
+      GeoCoord(lat: 0.6581220034068, lon: -2.1382437718946),
+      GeoCoord(lat: 0.6594479998527, lon: -2.1384597563896),
+      GeoCoord(lat: 0.6599990002976, lon: -2.1376771158464),
+    ];
+
+    const List<GeoCoord> emptyGeofence = <GeoCoord>[
+      GeoCoord(lat: 0.659966917655, lon: -2.1364398519394),
+      GeoCoord(lat: 0.659966917655, lon: -2.1364398519395),
+      GeoCoord(lat: 0.659966917655, lon: -2.1364398519396),
     ];
 
     const List<List<GeoCoord>> holes = <List<GeoCoord>>[
       <GeoCoord>[
-        GeoCoord(lat: 0.9, lon: 0.3),
-        GeoCoord(lat: 0.9, lon: 0.5),
-        GeoCoord(lat: 1.0, lon: 0.7),
-        GeoCoord(lat: 0.9, lon: 0.3),
+        GeoCoord(lat: 0.6595072188743, lon: -2.1371053983433),
+        GeoCoord(lat: 0.6591482046471, lon: -2.1373141048153),
+        GeoCoord(lat: 0.6592295020837, lon: -2.1365222838402),
       ],
     ];
 
-    expect(maxPolyfillSize(GeoPolygon(geofence, holes), 2), 169);
+    expect(maxPolyfillSize(GeoPolygon(geofence, <List<GeoCoord>>[]), 9), 3169);
+    expect(maxPolyfillSize(GeoPolygon(geofence, holes), 9), 3169);
+    expect(maxPolyfillSize(GeoPolygon(emptyGeofence, <List<GeoCoord>>[]), 9), 1);
+  });
+
+  test('polyfill', () {
+    const List<GeoCoord> geofence = <GeoCoord>[
+      GeoCoord(lat: 0.659966917655, lon: -2.1364398519396),
+      GeoCoord(lat: 0.6595011102219, lon: -2.1359434279405),
+      GeoCoord(lat: 0.6583348114025, lon: -2.1354884206045),
+      GeoCoord(lat: 0.6581220034068, lon: -2.1382437718946),
+      GeoCoord(lat: 0.6594479998527, lon: -2.1384597563896),
+      GeoCoord(lat: 0.6599990002976, lon: -2.1376771158464),
+    ];
+
+    const List<GeoCoord> emptyGeofence = <GeoCoord>[
+      GeoCoord(lat: 0.659966917655, lon: -2.1364398519394),
+      GeoCoord(lat: 0.659966917655, lon: -2.1364398519395),
+      GeoCoord(lat: 0.659966917655, lon: -2.1364398519396),
+    ];
+
+    const List<List<GeoCoord>> holes = <List<GeoCoord>>[
+      <GeoCoord>[
+        GeoCoord(lat: 0.6595072188743, lon: -2.1371053983433),
+        GeoCoord(lat: 0.6591482046471, lon: -2.1373141048153),
+        GeoCoord(lat: 0.6592295020837, lon: -2.1365222838402),
+      ],
+    ];
+
+    List<int> result = polyfill(GeoPolygon(geofence, <List<GeoCoord>>[]), 9);
+    expect(result.where((int it) => it != 0).length, 1253);
+
+    result = polyfill(GeoPolygon(geofence, holes), 9);
+    expect(result.where((int it) => it != 0).length, 1214);
+
+    result = polyfill(GeoPolygon(emptyGeofence, <List<GeoCoord>>[]), 9);
+    expect(result.where((int it) => it != 0).length, 0);
   });
 }
 

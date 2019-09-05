@@ -22,7 +22,7 @@ class GeoCoordNative extends Struct<GeoCoordNative> {
   double lon;
 
   static GeoCoordNative allocate({int count = 1}) {
-    return Pointer<GeoCoordNative>.allocate(count: count * sizeOf<GeoCoordNative>()).load();
+    return Pointer<GeoCoordNative>.allocate(count: count).load();
   }
 
   // Please ensure to [free] the memory manually!

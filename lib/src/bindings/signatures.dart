@@ -12,8 +12,6 @@ typedef h3ToGeo_native_t = Void Function(Uint64 h3, Pointer<GeoCoordNative> g);
 
 typedef h3ToGeoBoundary_dart_native_t = Int32 Function(Uint64 h3, Pointer<GeoCoordNative> gp);
 
-typedef maxKringSize_native_t = Int32 Function(Int32 h3);
-
 typedef hexRange_native_t = Int32 Function(Uint64 origin, Int32 k, Pointer<Uint64> out);
 
 typedef hexRangeDistances_native_t = Int32 Function(

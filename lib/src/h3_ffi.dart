@@ -53,10 +53,7 @@ List<GeoCoord> h3ToGeoBoundary(int h3) {
 
 /// Maximum number of indices that result from the kRing algorithm with the given
 /// k. Formula source and proof: https://oeis.org/A003215
-int maxKringSize(int k) {
-  assert(_initialized);
-  return bindings.maxKringSize(k);
-}
+int maxKringSize(int k) => 3 * k * (k + 1) + 1;
 
 /// Produces indexes within [k] distance of the origin index.
 ///
